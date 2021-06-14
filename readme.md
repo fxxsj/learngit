@@ -182,6 +182,8 @@ git remote rm origin
 
 要克隆一个仓库，首先必须知道仓库的地址，然后使用git clone命令克隆。
 
+Git支持多种协议，包括https，但ssh协议速度最快。
+
 ------
 
 分支管理
@@ -190,6 +192,56 @@ git remote rm origin
 
 如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，结果，你既学会了Git又学会了SVN！
 
+------
+
+HEAD严格来说不是指向提交，而是指向master，master才是指向提交的
+
+创建dev分支，然后切换到dev分支
+
+git checkout -b dev
+
+git checkout命令加上-b参数表示创建并切换，相当于以下两条命令
+
+git branch dev
+
+git checkout dev
+
+git branch命令查看当前分支 命令会列出所有分支，当前分支前面会标一个*号 
+
+git merge命令用于合并指定分支到当前分支。
+
+Fast-forward是“快进模式”，不是每次合并都能Fast-forward
+
+删除dev分支
+
+git branch -d dev
+
+我们注意到切换分支使用git checkout <branch>，而前面讲过的撤销修改则是git checkout -- <file>，同一个命令，有两种作用，确实有点令人迷惑。
+
+实际上，切换分支这个动作，用switch更科学。因此，最新版本的Git提供了新的git switch命令来切换分支：
+
+创建并切换到新的dev分支，可以使用：
+
+git switch -c dev
+
+直接切换到已有的master分支，可以使用：
+
+git switch master
+
+小结
+
+Git鼓励大量使用分支：
+
+查看分支：git branch
+
+创建分支：git branch <name>
+
+切换分支：git checkout <name>或者git switch <name>
+
+创建+切换分支：git checkout -b <name>或者git switch -c <name>
+
+合并某分支到当前分支：git merge <name>
+
+删除分支：git branch -d <name>
 
 
-Git支持多种协议，包括https，但ssh协议速度最快。
