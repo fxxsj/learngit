@@ -95,5 +95,19 @@ git checkout其实是用版本库里的版本替换工作区的版本，无论�
 小结
 命令git rm用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。
 
+------
+
+本地Git仓库和GitHub仓库之间的传输
+
+第1步：创建SSH Key
+$ ssh-keygen -t rsa -C "youremail@example.com"
+如果一切顺利的话，可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。
+
+第2步：登陆GitHub，打开“Account settings”，“SSH Keys”页面：
+然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容
+
+小结
+“有了远程仓库，妈妈再也不用担心我的硬盘了。”——Git点读机
+
 
 
