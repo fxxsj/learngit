@@ -1,3 +1,15 @@
+Git是什么？
+
+Git是目前世界上最先进的分布式版本控制系统（没有之一）。
+
+git config --global user.name "Your Name"
+
+git config --global user.email "email@example.com"
+
+注意git config命令的--global参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。
+
+------
+
 mkdir learngit 创建一个文件夹
 
 cd learngit 进入该文件夹
@@ -488,4 +500,59 @@ git remote add gitee git@gitee.com:yourname/learngit.git
 如果要推送到GitHub，使用命令：git push github master
 
 如果要推送到Gitee，使用命令： git push gitee master
+
+------
+
+自定义Git
+
+Git有很多可配置项，让Git显示颜色，会让命令输出看起来更醒目：
+
+$ git config --global color.ui true
+
+------
+
+忽略特殊文件
+
+在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。
+
+所有配置文件可以直接在线浏览：https://github.com/github/gitignore
+
+忽略文件的原则是：
+
+忽略操作系统自动生成的文件，比如缩略图等；
+
+忽略编译生成的中间文件、可执行文件等，也就是如果一个文件是通过另一个文件自动生成的，那自动生成的文件就没必要放进版本库，比如Java编译产生的.class文件；
+
+忽略你自己的带有敏感信息的配置文件，比如存放口令的配置文件。
+
+被.gitignore忽略的文件可以能过用-f强制添加到Git
+
+git add -f App.class
+
+或者你发现，可能是.gitignore写得有问题，需要找出来到底哪个规则写错了，可以用git check-ignore命令检查：
+
+$ git check-ignore -v App.class
+.gitignore:3:*.class	App.class
+
+把指定文件排除在.gitignore规则外的写法就是!+文件名，所以，只需把例外文件添加进去即可
+
+# 排除所有.开头的隐藏文件:
+
+.*
+
+# 排除所有.class文件:
+
+*.class
+
+# 不排除.gitignore和App.class:
+
+!.gitignore
+
+!App.class
+
+小结
+
+忽略某些文件时，需要编写.gitignore；
+
+.gitignore文件本身要放到版本库里，并且可以对.gitignore做版本管理！
 
