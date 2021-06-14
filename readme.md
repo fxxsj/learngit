@@ -17,3 +17,14 @@ git commit 把文件提交到仓库 -m 后面输入其次提交的说明 有参�
 
 使用命令git add <file>，注意，可反复多次使用，添加多个文件；
 使用命令git commit -m <message>，完成。
+
+------
+
+git status 命令掌握仓库当前的状态
+
+git diff 查看具体修改了什么内容
+
+小结
+要随时掌握工作区的状态，使用git status命令。
+
+如果git status告诉你有文件被修改过，用git diff可以查看修改内容。
