@@ -466,3 +466,26 @@ git push origin :refs/tags/v0.9
 自己拥有Fork后的仓库的读写权限；
 
 可以推送pull request给官方仓库来贡献代码。
+
+------
+
+使用Gitee
+
+查看远程库信息：git remote -v
+
+删除已有的远程库：git remote rm origin
+
+如果有多个远程库，我们需要用不同的名称来标识不同的远程库
+
+关联GitHub的远程库：
+
+git remote add github git@github.com:yourname/learngit.git
+
+关联Gitee的远程库：
+
+git remote add gitee git@gitee.com:yourname/learngit.git
+
+如果要推送到GitHub，使用命令：git push github master
+
+如果要推送到Gitee，使用命令： git push gitee master
+
