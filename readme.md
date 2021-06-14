@@ -397,4 +397,28 @@ Git的标签虽然是版本库的快照，但其实它就是指向某个commit�
 
 tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。
 
+------
 
+创建标签
+
+敲命令git tag <name>就可以打一个新标签
+
+用命令git tag查看所有标签
+
+要对某次提交打标签，它对应的commit id是f52c633，敲入命令：
+
+git tag v0.9 f52c633
+
+注意，标签不是按时间顺序列出，而是按字母排序的。可以用git show <tagname>查看标签信息：
+
+可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：
+
+$ git tag -a v0.1 -m "version 0.1 released" 1094adb
+
+小结
+
+命令git tag <tagname>用于新建一个标签，默认为HEAD，也可以指定一个commit id；
+
+命令git tag -a <tagname> -m "blablabla..."可以指定标签信息；
+
+命令git tag可以查看所有标签。
