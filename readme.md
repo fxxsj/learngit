@@ -556,3 +556,40 @@ $ git check-ignore -v App.class
 
 .gitignore文件本身要放到版本库里，并且可以对.gitignore做版本管理！
 
+------
+
+配置别名
+
+我们只需要敲一行命令，告诉Git，以后st就表示status：
+
+$ git config --global alias.st status
+
+当然还有别的命令可以简写，很多人都用co表示checkout，ci表示commit，br表示branch：
+
+$ git config --global alias.co checkout
+
+$ git config --global alias.ci commit
+
+$ git config --global alias.br branch
+
+--global参数是全局参数，也就是这些命令在这台电脑的所有Git仓库下都有用。
+
+配置一个unstage别名：
+
+$ git config --global alias.unstage 'reset HEAD'
+
+配置一个git last，让其显示最后一次提交信息：
+
+$ git config --global alias.last 'log -1'
+
+把lg配置成了：
+
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+配置文件放哪了？每个仓库的Git配置文件都放在.git/config文件中
+
+而当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中
+
+小结
+
+给Git配置好别名，就可以输入命令时偷个懒。我们鼓励偷懒。
